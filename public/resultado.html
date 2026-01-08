@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Resultado</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h2>Resultado da Consulta</h2>
+
+    <div id="resultado" class="result"></div>
+
+    <br>
+    <button onclick="window.location.href='buscar.html'">
+      Nova Consulta
+    </button>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const dados = JSON.parse(decodeURIComponent(params.get("dados")));
+
+    document.getElementById("resultado").innerHTML = `
+      <p><strong>Placa:</strong> ${dados.Placa}</p>
+      <p><strong>Marca:</strong> ${dados.Marca}</p>
+      <p><strong>Modelo:</strong> ${dados.Modelo}</p>
+      <p><strong>Ano:</strong> ${dados.AnoModelo}</p>
+      <p><strong>Cor:</strong> ${dados.Cor}</p>
+      <p><strong>UF:</strong> ${dados.UF}</p>
+      <p><strong>Chassi:</strong> ${dados.Chassi}</p>
+      <p><strong>Renavan:</strong> ${dados.Renavan}</p>
+    `;
+  </script>
+
+</body>
+</html>
